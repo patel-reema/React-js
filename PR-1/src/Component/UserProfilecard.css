@@ -1,0 +1,40 @@
+.user-card {
+    width: 240px;
+    padding: 16px;
+    background: #ffffff;
+    border-radius: 14px;
+    text-align: center;
+
+    box-shadow: 0 6px 15px #00000026;
+    flex-shrink: 0;
+}
+
+.user-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.user-card h2 {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #111;
+}
+
+.user-card p {
+    font-size: 13px;
+    margin: 4px 0;
+    color: #444;
+}
+
+.user-info {
+    text-align: left;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.user-info p {
+    margin: 4px 0;
+}
