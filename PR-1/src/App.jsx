@@ -6,7 +6,6 @@ function App() {
     <div className="app">
       <h1>USER LIST</h1>
 
-      {/* THIS DIV WAS MISSING */}
       <div className="users-container">
         <UserProfilecard
           name="Shreya Pal"

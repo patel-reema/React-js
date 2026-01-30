@@ -5,19 +5,14 @@ const Counter = () => {
     const [count, setCount] = useState(0);
     const [lastAction, setLastAction] = useState('');
 
-    const handleInc = () => {
+    const handleINC = () => {
         setCount(prev => prev + 1);
-        setLastAction('Increment');
+        setLastAction('INC');
     }
 
-    const handleDec = () => {
+    const handleDEC = () => {
         setCount(prev => prev - 1);
-        setLastAction('Decrement');
-    }
-
-    const handleReset = () => {
-        setCount(0);
-        setLastAction('Reset');
+        setLastAction('DEC');
     }
 
     useEffect(() => {
@@ -31,9 +26,8 @@ const Counter = () => {
 
             <div>{count}</div>
             <div>
-                <Button name="Inc" count={count} handleClick={handleInc} />
-                <Button name="Dec" count={count} handleClick={handleDec} />
-                <Button name="Reset" count={count} handleClick={handleReset} />
+                <Button name="INC" count={count} handleClick={handleINC} />
+                <Button name="DEC" count={count} handleClick={handleDEC} />
             </div>
         </div>
     )
