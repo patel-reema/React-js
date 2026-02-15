@@ -1,0 +1,180 @@
+body {
+  font-family: 'DM Sans';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title {
+  font-family: 'Kalnia';
+  font-weight: 500;
+}
+
+.category-btn {
+  border: none;
+  background: transparent;
+  position: relative;
+  padding: 4px 8px;
+  color: black !important;
+  text-decoration: none;
+}
+
+.category-btn:hover {
+  color: black !important;
+}
+
+.category-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: width 0.25s ease;
+}
+
+.category-btn:hover::after {
+  width: 100%;
+}
+
+.sidebar-cat {
+  cursor: pointer;
+  color: black;
+  margin-bottom: 6px;
+  transition: color 0.2s ease;
+}
+
+.sidebar-cat:hover {
+  color: red;
+}
+
+.recent-post {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  line-height: 20px;
+}
+
+.recent-post img {
+  width: 70px;
+  height: 75px;
+  object-fit: cover;
+}
+
+.recent-title {
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.recent-post:hover .recent-title {
+  color: red;
+}
+
+.img-box {
+  position: relative;
+}
+
+.category-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+
+  border: 0;
+  color: black;
+  background: white;
+
+  border-radius: 20px;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.category-badge:hover {
+  background: red;
+  color: white;
+}
+
+.blog-date {
+  color: #888;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.blog-title {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.blog-title:hover {
+  color: red;
+}
+
+.read-btn {
+  border: 0 !important;
+  background: black !important;
+  color: white !important;
+  padding: 12px 35px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: all 0.25s ease;
+}
+
+.read-btn:hover {
+  background: red !important;
+  color: white !important;
+}
+
+.tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn-animated {
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid rgb(180, 177, 177) !important;
+  background: transparent !important;
+  color: rgb(180, 177, 177) !important;
+
+  font-size: 13px;
+  border-radius: 30px;
+
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+/* sliding background */
+.btn-animated::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 100%;
+
+  background: red;
+  z-index: -1;
+
+  transition: width 0.3s ease;
+}
+
+.btn-animated:hover::before {
+  width: 100%;
+}
+
+.btn-animated:hover {
+  color: white !important;
+}
