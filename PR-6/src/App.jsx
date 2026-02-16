@@ -7,6 +7,8 @@ const getLocalData = () => {
   return JSON.parse(sessionStorage.getItem('employes')) || [];
 }
 
+
+
 function App() {
   const initialState = {
     id: "",
@@ -106,6 +108,8 @@ function App() {
     sessionStorage.setItem('employes', JSON.stringify(employes));
   }, [employes]);
 
+
+
   return (
     <>
       <div className='app-layout'>
@@ -113,6 +117,7 @@ function App() {
           <h2>Employes Form</h2>
 
           {error && <p style={{ color: "red" }}>{error}</p>}
+
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Control type="text" name='fullName' value={formData.fullName} placeholder="Full name here" onChange={handleChange} />
@@ -154,6 +159,8 @@ function App() {
 
           </Form>
         </div>
+
+
         <div className="list-panel">
           <h2>Employee List</h2>
 
@@ -177,13 +184,8 @@ function App() {
                   </Badge>
 
                   <div className="card-actions">
-                    <Button onClick={() => handleEdit(emp.id)}>
-                      Edit
-                    </Button>
-
-                    <Button onClick={() => handleDelete(emp.id)}>
-                      Delete
-                    </Button>
+                    <Button onClick={() => handleEdit(emp.id)}>Edit</Button>
+                    <Button onClick={() => handleDelete(emp.id)}>Delete</Button>
                   </div>
 
                 </Card.Body>
