@@ -1,0 +1,152 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: #f4f6fb;
+}
+
+/* ===== Layout ===== */
+
+.app-layout {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  align-items: flex-start;
+}
+
+/* ===== Form Panel ===== */
+
+.form-panel {
+  width: 350px;
+  position: sticky;
+  top: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-panel h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  color: black;
+}
+
+/* Labels */
+
+/* .form-label {
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: black;
+} */
+
+/* Inputs */
+
+.form-control {
+  border-radius: 8px !important;
+  padding: 8px;
+  width: 90%;
+}
+
+/* Submit button */
+
+.form-panel button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ===== List Panel ===== */
+
+.list-panel {
+  flex: 1;
+}
+
+.list-panel h2 {
+  margin-bottom: 20px;
+  color: black;
+}
+
+/* Grid */
+
+.employee-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Cards */
+
+.employee-card {
+  width: 240px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.employee-card img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.employee-card .card-body {
+  padding: 12px;
+  color: black;
+}
+
+.employee-card .badge {
+  margin: 5px 0;
+}
+
+/* Buttons */
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.card-actions button {
+  flex: 1;
+}
