@@ -62,7 +62,7 @@ export const addForm = (course) => {
 };export const getCourseAsync = (id) => {
   return async (dispatch) => {
     try {
-      let res = await axios.get(`http://localhost:9090/courses/${id}`);
+      let res = await axios.get(`http://localhost:3000/courses/${id}`);
       dispatch(getCourse(res.data));
     } catch (error) {
       console.log(error);
@@ -74,7 +74,7 @@ export const addForm = (course) => {
 export const getAllCourseAsync = () => {
   return async (dispatch) => {
     try {
-      let res = await axios.get(`http://localhost:9090/courses`);
+      let res = await axios.get(`http://localhost:3000/courses`);
       console.log(res.data);
       dispatch(getAllCourse(res.data));
     } catch (error) {
@@ -86,7 +86,7 @@ export const getAllCourseAsync = () => {
 export const deleteCourseAsync = (id) => {
   return async (dispatch) => {
     try {
-      let res = await axios.delete(`http://localhost:9090/courses/${id}`);
+      let res = await axios.delete(`http://localhost:3000/courses/${id}`);
       console.log(res.data);
       dispatch(getAllCourseAsync());
     } catch (error) {
@@ -98,7 +98,7 @@ export const deleteCourseAsync = (id) => {
 export const updateCourseAsync = (data) => {
   return async (dispatch) => {
     try {
-      let res = await axios.put(`http://localhost:9090/courses/${data.id}`, data);
+      let res = await axios.put(`http://localhost:3000/courses/${data.id}`, data);
       console.log(res.data);
       dispatch(updateCourse(res.data));
       dispatch(getAllCourseAsync());
@@ -111,7 +111,7 @@ export const updateCourseAsync = (data) => {
 export const addCourseAsync = (data) => {
   return async (dispatch) => {
     try {
-      let res = await axios.post(`http://localhost:9090/courses/`, data);
+      let res = await axios.post(`http://localhost:3000/courses/`, data);
       dispatch(addCourse());
       dispatch(getAllCourseAsync());
     } catch (error) {

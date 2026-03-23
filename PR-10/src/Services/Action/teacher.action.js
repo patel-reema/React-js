@@ -37,7 +37,7 @@ export const deleteTeacher = (id) => {
 };
 
 
-const API = "http://localhost:9090/teachers";
+const API = "http://localhost:3000/teachers";
 
 export const getAllTeacherAsync = () => {
     return async (dispatch) => {
