@@ -63,11 +63,9 @@ const CourseReducer = (state = initialState, action) => {
       };
 
     case "ADD_FORM":
-      const addform = [...state.courses, action.payload];
-      localStorage.setItem("Courses", JSON.stringify(addform));
       return {
         ...state,
-        courses: addform,
+        courses: [...state.courses, action.payload],
       };
 
     default:

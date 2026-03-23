@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { addToCart } from "../../Services/Action/cource.action";
+import { addToCart, getAllCourseAsync } from "../../Services/Action/cource.action";
 import "./ViewCourses.css";
 
 const ViewCourses = ({ filter }) => {
@@ -10,6 +11,10 @@ const ViewCourses = ({ filter }) => {
   const cart = useSelector((state) => state.courseReducer.cart);
   const myLearning = useSelector((state) => state.courseReducer.myLearning);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCourseAsync());
+  }, [dispatch]);
 
   const filteredCourses = filter === "All" 
     ? courses 

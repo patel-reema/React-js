@@ -6,7 +6,7 @@ import "./AddCourse.css";
 import { useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-import { addCourse } from "../../Services/Action/cource.action";
+import { addCourseAsync } from "../../Services/Action/cource.action";
 
 const AddCourse = () => {
 
@@ -45,7 +45,7 @@ const handleSubmit = (e) => {
     id: Date.now()
   };
 
-  dispatch(addCourse(newCourse));
+  dispatch(addCourseAsync(newCourse));
   console.log("Course Added:", newCourse);
   navigate("/");
 

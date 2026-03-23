@@ -2,7 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { deleteCourse, addToCart } from "../../Services/Action/cource.action";
+import { deleteCourseAsync, addToCart, getCourseAsync } from "../../Services/Action/cource.action";
+import { useEffect } from "react";
 
 const CourseDetails = () => {
 
@@ -13,7 +14,13 @@ const CourseDetails = () => {
   const cart = useSelector((state) => state.courseReducer.cart);
   const myLearning = useSelector((state) => state.courseReducer.myLearning);
 
-  const course = courses[id];
+  const course = courses[id] || courses.find(c => c.id === id || c.id === Number(id));
+
+  useEffect(() => {
+    if (!course) {
+      dispatch(getCourseAsync(id));
+    }
+  }, [dispatch, id, course]);
 
   if (!course) {
     return <h2 className="text-center mt-5">Course Not Found</h2>;
@@ -81,7 +88,7 @@ const CourseDetails = () => {
               variant="outline-danger"
               size="sm"
               onClick={() => {
-                dispatch(deleteCourse(course.id));
+                dispatch(deleteCourseAsync(course.id));
                 navigate("/");
               }}
             >

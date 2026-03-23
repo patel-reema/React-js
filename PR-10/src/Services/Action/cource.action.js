@@ -59,9 +59,16 @@ export const addForm = (course) => {
     type: "ADD_FORM",
     payload: course,
   };
+};export const getCourseAsync = (id) => {
+  return async (dispatch) => {
+    try {
+      let res = await axios.get(`http://localhost:9090/courses/${id}`);
+      dispatch(getCourse(res.data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
 };
-
-
 
 
 export const getAllCourseAsync = () => {
@@ -93,7 +100,8 @@ export const updateCourseAsync = (data) => {
     try {
       let res = await axios.put(`http://localhost:9090/courses/${data.id}`, data);
       console.log(res.data);
-      dispatch(updateCourse());
+      dispatch(updateCourse(res.data));
+      dispatch(getAllCourseAsync());
     } catch (error) {
       console.log(error);
     }
@@ -105,6 +113,7 @@ export const addCourseAsync = (data) => {
     try {
       let res = await axios.post(`http://localhost:9090/courses/`, data);
       dispatch(addCourse());
+      dispatch(getAllCourseAsync());
     } catch (error) {
       console.log(error);
     }

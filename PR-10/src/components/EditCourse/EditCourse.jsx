@@ -3,7 +3,7 @@ import { Button, Form, Col, Container, Row, Card } from "react-bootstrap";
 import { FaStar } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
-import { updateCourse } from "../../Services/Action/cource.action";
+import { updateCourseAsync, getCourseAsync } from "../../Services/Action/cource.action";
 import "../AddCourse/AddCourse.css";
 
 const EditCourse = () => {
@@ -27,19 +27,14 @@ const EditCourse = () => {
     });
 
     useEffect(() => {
+        dispatch(getCourseAsync(id));
+    }, [dispatch, id]);
 
-        let courseList = courses;
-
-        if (courseList.length === 0) {
-            courseList = JSON.parse(localStorage.getItem("Courses")) || [];
-        }
-
-        const selectedCourse = courseList.find(c => c.id === Number(id));
-
+    useEffect(() => {
+        const selectedCourse = courses.find(c => c.id === id || c.id === Number(id));
         if (selectedCourse) {
             setFormData(selectedCourse);
         }
-
     }, [id, courses]);
 
     const handleRating = (value) => {
@@ -58,7 +53,7 @@ const EditCourse = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(updateCourse(formData));
+        dispatch(updateCourseAsync(formData));
         navigate("/");
     }
     return (
