@@ -18,6 +18,10 @@ import BecomeInstructor from "./components/Teach/BecomeInstructor/BecomeInstruct
 import ViewInstructor from "./components/Teach/Instructors/viewInstructor";
 import InstructorDetails from "./components/Teach/Instructors/InstructorDetails";
 import EditInstructor from "./components/Teach/Instructors/EditInstructor";
+import ReasonsSection from "./components/Teach/TeachSec/ReasonSec/ReasonsSection";
+import HowToBegin from "./components/Teach/TeachSec/HowToBegin/HowToBegin";
+import TestimonialSlider from "./components/Teach/TeachSec/TestimonialSlider/TestimonialSlider";
+import SupportSection from "./components/Teach/TeachSec/SupportSection/SupportSection"
 
 function App() {
   const [filter, setFilter] = useState("All");
@@ -41,7 +45,7 @@ function App() {
         <Route path="/edit/:id" element={<EditCourse />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/my-learning" element={<MyLearning />} />
-        <Route path="/teach" element={<><Thero /><BecomeInstructor /></>} />
+        <Route path="/teach" element={<><Thero /><ReasonsSection /><HowToBegin /><TestimonialSlider /><SupportSection /><BecomeInstructor /></>} />
         <Route path="/get-started" element={<AddForm />} />
         <Route path="/view-instructors" element={<ViewInstructor />} />
         <Route path="/instructor/:id" element={<InstructorDetails />} />
