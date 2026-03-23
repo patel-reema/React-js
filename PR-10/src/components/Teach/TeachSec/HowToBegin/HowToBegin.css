@@ -1,61 +1,129 @@
 .how-section {
-    padding: 80px 40px;
-    background: white;
-    text-align: center;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .how-section h2 {
-    font-size: 36px;
+    text-align: center;
+    font-size: 2rem;
     margin-bottom: 30px;
 }
 
+/* Tabs */
 .tabs {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
 .tabs button {
-    background: none;
+    padding: 10px 18px;
     border: none;
-    font-size: 18px;
+    background: #eee;
     cursor: pointer;
-    padding-bottom: 8px;
-    color: #555;
+    border-radius: 20px;
+    transition: 0.3s;
+    font-size: 14px;
 }
 
 .tabs button.active {
-    border-bottom: 2px solid black;
-    color: black;
-    font-weight: 600;
+    background: #000;
+    color: #fff;
 }
 
+/* Content Layout */
 .how-content {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 60px;
-    max-width: 1100px;
-    margin: auto;
-    text-align: left;
+    justify-content: space-between;
+    gap: 40px;
 }
 
+/* Text */
 .text {
     flex: 1;
 }
 
 .text p {
-    margin-bottom: 20px;
+    font-size: 16px;
     line-height: 1.6;
-    color: #444;
+    margin-bottom: 15px;
 }
 
+.text h4 {
+    margin-top: 15px;
+}
+
+/* Image */
 .image {
     flex: 1;
+    text-align: center;
 }
 
 .image img {
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
+    height: auto;
+}
+
+/* 🔽 Responsive Breakpoints */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .how-content {
+        gap: 20px;
+    }
+
+    .text p {
+        font-size: 15px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .how-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image {
+        order: -1; /* image on top */
+    }
+
+    .tabs {
+        gap: 8px;
+    }
+
+    .tabs button {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .how-section {
+        padding: 40px 15px;
+    }
+
+    .how-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .text p {
+        font-size: 14px;
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tabs button {
+        width: 100%;
+        max-width: 300px;
+    }
 }

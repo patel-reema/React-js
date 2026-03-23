@@ -10,7 +10,7 @@ const Hero = () => {
         <div id="logoimg">
             <img src="https://www.udemy.com/staticx/udemy/images/v7/logo-udemy.svg" alt="Logo" />
         </div>
-        <h2>Skills to transform your career and life</h2>
+        <h2>Upgrade your skills</h2>
         <p>
           From critical skills to technical topics, Udemy supports your
           professional development.
