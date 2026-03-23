@@ -13,8 +13,8 @@ const Thero = () => {
           Become an instructor and change lives — including your own
         </p>
         <Link to="/get-started">
-  <button>Get Started</button>
-</Link>
+          <button>Get Started</button>
+        </Link>
       </div>
     </div>
   );

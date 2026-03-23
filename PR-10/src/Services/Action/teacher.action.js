@@ -36,11 +36,9 @@ export const deleteTeacher = (id) => {
     };
 };
 
-/* ---------------- ASYNC ACTIONS ---------------- */
 
 const API = "http://localhost:9090/teachers";
 
-/* GET ALL */
 export const getAllTeacherAsync = () => {
     return async (dispatch) => {
         try {
@@ -52,7 +50,17 @@ export const getAllTeacherAsync = () => {
     };
 };
 
-/* ADD */
+export const getTeacherAsync = (id) => {
+    return async (dispatch) => {
+        try {
+            let res = await axios.get(`${API}/${id}`);
+            dispatch(getTeacher(res.data));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
+
 export const addTeacherAsync = (data) => {
     return async (dispatch) => {
         try {
@@ -64,8 +72,6 @@ export const addTeacherAsync = (data) => {
         }
     };
 };
-
-/* DELETE */
 export const deleteTeacherAsync = (id) => {
     return async (dispatch) => {
         try {

@@ -46,6 +46,15 @@
   background-color: #a435f0;
 }
 
+.hero-content .view-ins-btn {
+  background-color: #1c1d1f;
+  margin-top: 10px;
+}
+
+.hero-content .view-ins-btn:hover {
+  background-color: #3e4143;
+}
+
 @media (max-width: 768px) {
   .hero {
     height: auto; 

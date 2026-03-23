@@ -4,7 +4,7 @@ import "./Addform.css";
 import { useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-import { addCourse } from "../../../Services/Action/cource.action";
+import { addTeacherAsync } from "../../../Services/Action/teacher.action";
 
 const AddForm = () => {
   const dispatch = useDispatch();
@@ -44,10 +44,10 @@ const AddForm = () => {
       id: Date.now(),
     };
 
-    dispatch(addCourse(newInstructor)); // you can rename later to addInstructor
+    dispatch(addTeacherAsync(newInstructor));
     console.log("Instructor Added:", newInstructor);
 
-    navigate("/");
+    navigate("/view-instructors");
 
     setFormData({
       firstName: "",

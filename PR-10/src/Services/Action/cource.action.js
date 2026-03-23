@@ -62,7 +62,7 @@ export const addForm = (course) => {
 };
 
 
-// Async actions
+
 
 export const getAllCourseAsync = () => {
   return async (dispatch) => {

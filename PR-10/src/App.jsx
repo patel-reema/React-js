@@ -14,6 +14,10 @@ import Cart from "./components/Cart/Cart";
 import MyLearning from "./components/MyLearning/MyLearning";
 import Thero from "./components/Teach/HeroTeach/Thero";
 import AddForm from "./components/Teach/AddForm/Addform";
+import BecomeInstructor from "./components/Teach/BecomeInstructor/BecomeInstructor";
+import ViewInstructor from "./components/Teach/Instructors/viewInstructor";
+import InstructorDetails from "./components/Teach/Instructors/InstructorDetails";
+import EditInstructor from "./components/Teach/Instructors/EditInstructor";
 
 function App() {
   const [filter, setFilter] = useState("All");
@@ -37,8 +41,11 @@ function App() {
         <Route path="/edit/:id" element={<EditCourse />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/my-learning" element={<MyLearning />} />
-        <Route path="/teach" element={<Thero />} />
+        <Route path="/teach" element={<><Thero /><BecomeInstructor /></>} />
         <Route path="/get-started" element={<AddForm />} />
+        <Route path="/view-instructors" element={<ViewInstructor />} />
+        <Route path="/instructor/:id" element={<InstructorDetails />} />
+        <Route path="/edit-instructor/:id" element={<EditInstructor />} />
       </Routes>
 
     </div>

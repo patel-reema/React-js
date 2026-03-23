@@ -1,28 +1,40 @@
+import { useEffect } from "react";
 import { Container, Table, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteCourse } from "../../../Services/Action/cource.action";
+import { getAllTeacherAsync, deleteTeacherAsync } from "../../../Services/Action/teacher.action";
+import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
+import "./Instructors.css";
 
 const ViewInstructor = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // get instructors from redux store
-    const instructors = useSelector((state) => state.courseReducer.courses);
+    const instructors = useSelector((state) => state.teacherReducer.teachers);
+
+    useEffect(() => {
+        dispatch(getAllTeacherAsync());
+    }, [dispatch]);
 
     const handleDelete = (id) => {
-        dispatch(deleteCourse(id));
+        if (window.confirm("Are you sure you want to delete this instructor?")) {
+            dispatch(deleteTeacherAsync(id));
+        }
     };
 
     const handleEdit = (id) => {
-        navigate(`/edit/${id}`);
+        navigate(`/edit-instructor/${id}`);
+    };
+
+    const handleView = (id) => {
+        navigate(`/instructor/${id}`);
     };
 
     return (
-        <Container className="mt-4">
-            <h2 className="text-center mb-4">Instructor List</h2>
+        <div className="instructor-table-container">
+            <h2 className="text-center">Instructor List</h2>
 
-            <Table striped bordered hover responsive>
+            <Table className="instructor-table" striped bordered hover responsive>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -32,7 +44,7 @@ const ViewInstructor = () => {
                         <th>Phone</th>
                         <th>Profession</th>
                         <th>Skills</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
 
@@ -44,10 +56,9 @@ const ViewInstructor = () => {
 
                                 <td>
                                     <img
-                                        src={item.profileImage}
+                                        src={item.profileImage || "https://via.placeholder.com/45"}
                                         alt="profile"
-                                        width="50"
-                                        height="50"
+                                        className="instructor-profile-img"
                                     />
                                 </td>
 
@@ -61,35 +72,42 @@ const ViewInstructor = () => {
                                 <td>{item.skills}</td>
 
                                 <td>
-                                    <Button
-                                        variant="warning"
-                                        size="sm"
-                                        className="me-2"
+                                    <button
+                                        className="action-btn view"
+                                        title="View"
+                                        onClick={() => handleView(item.id)}
+                                    >
+                                        <FaEye />
+                                    </button>
+
+                                    <button
+                                        className="action-btn edit"
+                                        title="Edit"
                                         onClick={() => handleEdit(item.id)}
                                     >
-                                        Edit
-                                    </Button>
+                                        <FaEdit />
+                                    </button>
 
-                                    <Button
-                                        variant="danger"
-                                        size="sm"
+                                    <button
+                                        className="action-btn delete"
+                                        title="Delete"
                                         onClick={() => handleDelete(item.id)}
                                     >
-                                        Delete
-                                    </Button>
+                                        <FaTrash />
+                                    </button>
                                 </td>
                             </tr>
                         ))
                     ) : (
-                        <tr>
+                        <tr className="no-instructor-row">
                             <td colSpan="8" className="text-center">
-                                No Instructor Found
+                                No Instructors Found
                             </td>
                         </tr>
                     )}
                 </tbody>
             </Table>
-        </Container>
+        </div>
     );
 };
 

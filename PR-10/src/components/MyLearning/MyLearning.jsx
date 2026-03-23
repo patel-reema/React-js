@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./MyLearning.css";
 
 const MyLearning = () => {
-  const myLearning = useSelector((state) => state.myLearning);
+  const myLearning = useSelector((state) => state.courseReducer.myLearning);
 
   return (
     <Container className="my-learning-container mt-5">

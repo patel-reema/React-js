@@ -1,9 +1,16 @@
-import { createStore } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { thunk } from "redux-thunk";
 import CourseReducer from "./Reducer/CourseReducer";
+import teacherReducer from "./Reducer/teacherReducer";
+
+const rootReducer = combineReducers({
+  courseReducer: CourseReducer,
+  teacherReducer: teacherReducer,
+});
 
 const store = createStore(
-  CourseReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  rootReducer,
+  applyMiddleware(thunk),
 );
 
 export default store;

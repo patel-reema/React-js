@@ -9,9 +9,9 @@ const CourseDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const courses = useSelector((state) => state.courses);
-  const cart = useSelector((state) => state.cart);
-  const myLearning = useSelector((state) => state.myLearning);
+  const courses = useSelector((state) => state.courseReducer.courses);
+  const cart = useSelector((state) => state.courseReducer.cart);
+  const myLearning = useSelector((state) => state.courseReducer.myLearning);
 
   const course = courses[id];
 
@@ -59,8 +59,8 @@ const CourseDetails = () => {
             ) : isInCart ? (
               <Button as={Link} to="/cart" variant="warning" className="me-3">Go to Cart</Button>
             ) : (
-              <Button 
-                variant="dark" 
+              <Button
+                variant="dark"
                 className="me-3"
                 onClick={() => dispatch(addToCart(course))}
               >
@@ -77,7 +77,7 @@ const CourseDetails = () => {
             >
               Edit
             </Button> &nbsp; &nbsp;
-            <Button 
+            <Button
               variant="outline-danger"
               size="sm"
               onClick={() => {

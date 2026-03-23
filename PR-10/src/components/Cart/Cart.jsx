@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.courseReducer.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

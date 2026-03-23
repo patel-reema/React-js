@@ -6,9 +6,9 @@ import "./ViewCourses.css";
 
 const ViewCourses = ({ filter }) => {
 
-  const courses = useSelector((state) => state.courses);
-  const cart = useSelector((state) => state.cart);
-  const myLearning = useSelector((state) => state.myLearning);
+  const courses = useSelector((state) => state.courseReducer.courses);
+  const cart = useSelector((state) => state.courseReducer.cart);
+  const myLearning = useSelector((state) => state.courseReducer.myLearning);
   const dispatch = useDispatch();
 
   const filteredCourses = filter === "All" 
