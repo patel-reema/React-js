@@ -22,7 +22,6 @@ function App() {
     return () => unsubscribe();
   }, [dispatch]);
 
-  // Show a loading spinner while Firebase checks auth state
   if (loading) {
     return (
       <div className="app-loading">
